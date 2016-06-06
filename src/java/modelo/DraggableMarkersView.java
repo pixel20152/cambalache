@@ -31,7 +31,7 @@ public class DraggableMarkersView implements Serializable {
         draggableModel = new DefaultMapModel();
           
         //Shared coordinates
-        LatLng coord1 = new LatLng(36.879466, 30.667648);
+        LatLng coord1 = new LatLng(36.883707, 30.689216);
           
         //Draggable
         draggableModel.addOverlay(new Marker(coord1, "Konyaalti"));

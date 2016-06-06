@@ -104,14 +104,17 @@
                     <h4>Palabras Claves</h4>
                     <h:inputText value="#{beanPublicacion.palabrasClaves}"/>
                     <h4>Latitud</h4>
-                    <h:inputText id="lat" value="#{beanPublicacion.latitud}"/>
+                    <h:inputText id="lat" value="#{beanPublicacion.latitud }"/>
                     <h4>Longitud</h4>
                     <h:inputText id="lng" value="#{beanPublicacion.longitud}"/>
-                    <h:outputText id="coo1" value="#{draggableMarkersView.marker.latlng.lat}"/>
+                    
+                    <h:inputText id="coo1" disabled="true" value="#{draggableMarkersView.marker.latlng.lat}" title="latitud"/>
+                    <br/>
+                    <h:inputText id="coo2" disabled="true" value="#{draggableMarkersView.marker.latlng.lng}" title="longitud"/>
                     <p:growl id="growl" showDetail="true" />
 
                     <p:gmap id="gmap" center="36.890257,30.707417" zoom="13" type="HYBRID"  model="#{draggableMarkersView.draggableModel}" style="width:100%;height:400px">
-                        <p:ajax event="markerDrag" listener="#{draggableMarkersView.onMarkerDrag}" update="growl,coo1" />
+                        <p:ajax event="markerDrag" listener="#{draggableMarkersView.onMarkerDrag}" update="growl,coo1,coo2" />
                     </p:gmap>
                 </div>
                 <div class="boton">
