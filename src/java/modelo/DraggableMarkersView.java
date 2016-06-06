@@ -31,7 +31,7 @@ public class DraggableMarkersView implements Serializable {
         draggableModel = new DefaultMapModel();
           
         //Shared coordinates
-        LatLng coord1 = new LatLng(19.3203912, -99.1847294);
+        LatLng coord1 = new LatLng(36.879466, 30.667648);
           
         //Draggable
         draggableModel.addOverlay(new Marker(coord1, "Konyaalti"));
@@ -44,6 +44,12 @@ public class DraggableMarkersView implements Serializable {
     public MapModel getDraggableModel() {
         return draggableModel;
     }
+      
+    public void onMarkerDrag(MarkerDragEvent event) {
+        marker = event.getMarker();
+          
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Marker Dragged", "Lat:" + marker.getLatlng().getLat() + ", Lng:" + marker.getLatlng().getLng()));
+    }
 
     public Marker getMarker() {
         return marker;
@@ -52,10 +58,6 @@ public class DraggableMarkersView implements Serializable {
     public void setMarker(Marker marker) {
         this.marker = marker;
     }
-      
-    public void onMarkerDrag(MarkerDragEvent event) {
-        marker = event.getMarker();
-          
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Marker Dragged", "Lat:" + marker.getLatlng().getLat() + ", Lng:" + marker.getLatlng().getLng()));
-    }
+    
+    
 }

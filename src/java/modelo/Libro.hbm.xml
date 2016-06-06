@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 18/05/2016 02:01:04 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated 05-jun-2016 23:07:54 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelo.Libro" table="libro" schema="public" optimistic-lock="version">
         <id name="idLibro" type="int">
             <column name="id_libro" />
             <generator class="increment" />
         </id>
-        <many-to-one name="usuario" class="modelo.Usuario" fetch="select" cascade="merge">
+        <many-to-one name="usuario" class="modelo.Usuario" fetch="select">
             <column name="id_usuario" />
         </many-to-one>
         <property name="LTitulo" type="string">
@@ -36,16 +36,19 @@
             <column name="l_evaluacion_redaccion" />
         </property>
         <property name="LResehna" type="string">
-            <column name="l_resehna" length="32" />
+            <column name="l_resehna" length="1024" />
         </property>
         <property name="LPablasClave" type="string">
-            <column name="l_pablas_clave" length="32" />
+            <column name="l_pablas_clave" length="100" />
         </property>
         <property name="LFoto" type="string">
             <column name="l_foto" length="32" />
         </property>
-        <property name="LMapaUbicacion" type="string">
-            <column name="l_mapa_ubicacion" length="32" />
+        <property name="LLatitud" type="java.lang.Double">
+            <column name="l_latitud" precision="17" scale="17" />
+        </property>
+        <property name="LLongitud" type="java.lang.Double">
+            <column name="l_longitud" precision="17" scale="17" />
         </property>
         <property name="LOferta" type="java.lang.Boolean">
             <column name="l_oferta" />
