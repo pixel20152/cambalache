@@ -30,6 +30,9 @@
                 z-index: 50;
             }
         </style>
+        <title>19.3720028,-99.1024883</title>
+        <script src = "http://maps.googleapis.com/maps/api/js?sensor=truelfalse"
+            type="text/javascript"></script>
 
     </h:head>
     
@@ -45,9 +48,16 @@
                     <p:menuitem value="Publicar un libro" action="#{beanIndex.PUBLICAR()}"/>
                     <p:menuitem value="Mis publicaciones" action="#{beanIndex.MIS_PUBLICACIONES()}"/>
                     <p:menuitem value="Ver todas las publicaciones" action="#{beanIndex.VER_PUBLICACIONES()}"/>
+                    <p:menuitem value="mapas" action="#{beanIndex.MAPA()}"/>
                     <p:menuitem value="Salir " action="#{beanLogout.cerrarSesion()}"/>
                     
                 </p:menuButton>
+               
+                <p:gmap center="19.3789836,-99.0773806"  zoom="10" type="ROADMAP" 
+                        style="width:650px;height:600px" onPointClick="handlePointClick(event);">
+                    <p:ajax event="pointSelect" listener="#{mapas.onPointSelect}" update="messages"/>
+                </p:gmap>
+
                 
             </h:form>
         </div>

@@ -1,5 +1,5 @@
 package modelo;
-// Generated 18/05/2016 02:01:03 PM by Hibernate Tools 4.3.1
+// Generated 05-jun-2016 23:07:54 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -24,7 +24,8 @@ public class Libro  implements java.io.Serializable {
      private String LResehna;
      private String LPablasClave;
      private String LFoto;
-     private String LMapaUbicacion;
+     private Double LLatitud;
+     private Double LLongitud;
      private Boolean LOferta;
      private Set<Prestamo> prestamos = new HashSet<Prestamo>(0);
      private Set<Intercambio> intercambios = new HashSet<Intercambio>(0);
@@ -36,7 +37,7 @@ public class Libro  implements java.io.Serializable {
     public Libro(int idLibro) {
         this.idLibro = idLibro;
     }
-    public Libro(int idLibro, Usuario usuario, String LTitulo, String LAutor, String LEditorial, String LIsbn, String LAnho, Integer NEdicion, Integer LEvalucionContenido, Integer LEvaluacionRedaccion, String LResehna, String LPablasClave, String LFoto, String LMapaUbicacion, Boolean LOferta, Set<Prestamo> prestamos, Set<Intercambio> intercambios) {
+    public Libro(int idLibro, Usuario usuario, String LTitulo, String LAutor, String LEditorial, String LIsbn, String LAnho, Integer NEdicion, Integer LEvalucionContenido, Integer LEvaluacionRedaccion, String LResehna, String LPablasClave, String LFoto, Double LLatitud, Double LLongitud, Boolean LOferta, Set<Prestamo> prestamos, Set<Intercambio> intercambios) {
        this.idLibro = idLibro;
        this.usuario = usuario;
        this.LTitulo = LTitulo;
@@ -50,7 +51,8 @@ public class Libro  implements java.io.Serializable {
        this.LResehna = LResehna;
        this.LPablasClave = LPablasClave;
        this.LFoto = LFoto;
-       this.LMapaUbicacion = LMapaUbicacion;
+       this.LLatitud = LLatitud;
+       this.LLongitud = LLongitud;
        this.LOferta = LOferta;
        this.prestamos = prestamos;
        this.intercambios = intercambios;
@@ -147,12 +149,19 @@ public class Libro  implements java.io.Serializable {
     public void setLFoto(String LFoto) {
         this.LFoto = LFoto;
     }
-    public String getLMapaUbicacion() {
-        return this.LMapaUbicacion;
+    public Double getLLatitud() {
+        return this.LLatitud;
     }
     
-    public void setLMapaUbicacion(String LMapaUbicacion) {
-        this.LMapaUbicacion = LMapaUbicacion;
+    public void setLLatitud(Double LLatitud) {
+        this.LLatitud = LLatitud;
+    }
+    public Double getLLongitud() {
+        return this.LLongitud;
+    }
+    
+    public void setLLongitud(Double LLongitud) {
+        this.LLongitud = LLongitud;
     }
     public Boolean getLOferta() {
         return this.LOferta;
