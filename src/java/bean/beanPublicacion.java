@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import modelo.DraggableMarkersView;
 import modelo.Libro;
 import modelo.Usuario;
+import org.primefaces.model.map.DefaultMapModel;
+import org.primefaces.model.map.LatLng;
+import org.primefaces.model.map.MapModel;
+import org.primefaces.model.map.Marker;
 
 /**
  *
@@ -47,7 +51,7 @@ public class beanPublicacion {
     private final HttpServletRequest httpServletRequest;
     private final FacesContext faceContext;
     private FacesMessage message;
-    
+
     private DraggableMarkersView draggableMarkersView;
 
     public beanPublicacion() {
@@ -137,6 +141,22 @@ public class beanPublicacion {
         return resultado;
     }
 
+    
+    public MapModel mostrarMarcadores(int id) {
+        MapModel marcadores = new DefaultMapModel();
+        List<Libro> resultado;
+        try {
+            resultado = dao.obtenerPorUsuario(id);
+            for(Libro librotemp : resultado){
+                marcadores.addOverlay(new Marker(new LatLng(librotemp.getLLatitud(), librotemp.getLLongitud()), librotemp.getLTitulo()));
+            }
+        } catch (Exception e) {
+            resultado = new LinkedList<>();
+        }
+        return marcadores;
+    }
+
+    
     public List<Libro> mostrarPublicaciones() {
         List<Libro> resultado;
         try {
@@ -315,8 +335,8 @@ public class beanPublicacion {
     public void setLatitud(Double latitud) {
         this.latitud = latitud;
     }
-    
-    public void dameLatitud(Double latitud){
+
+    public void dameLatitud(Double latitud) {
         this.latitud = latitud;
     }
 
@@ -327,7 +347,7 @@ public class beanPublicacion {
     public void setLongitud(Double longitud) {
         this.longitud = longitud;
     }
-    
+
     public FacesMessage getMessage() {
         return message;
     }
@@ -344,5 +364,4 @@ public class beanPublicacion {
         this.draggableMarkersView = draggableMarkersView;
     }
 
-    
 }

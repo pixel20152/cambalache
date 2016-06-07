@@ -62,7 +62,7 @@ public class LibroDao {
         }
         return list;
     }
-    
+        
     public List<Libro> obtenerPorAutor(int id){
         List<Libro> list = null;
         try{
